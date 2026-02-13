@@ -4,8 +4,8 @@ import tailwindcss from '@tailwindcss/vite'
 import { VitePWA } from 'vite-plugin-pwa'
 
 // https://vite.dev/config/
-export default defineConfig({
-  base: '/digital-boyak/',
+export default defineConfig(({ command }) => ({
+  base: command === 'build' ? '/digital-boyak/' : '/',
   plugins: [
     react(),
     tailwindcss(),
@@ -40,7 +40,9 @@ export default defineConfig({
     })
   ],
   server: {
+    port: 5173,
+    strictPort: true,
     host: true,
     open: true
   }
-})
+}));
