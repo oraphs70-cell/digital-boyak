@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#FF9A6C" />
+  <meta name="description" content="디지털 보약 - 어르신을 위한 스마트폰 도우미 앱." />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="디지털 보약" />
+
+  <!-- SEO & Social -->
+  <meta property="og:title" content="디지털 보약 - 어르신을 위한 스마트폰 도우미" />
+  <meta property="og:description" content="복잡한 스마트폰 기능을 쉬운 버튼으로! 길찾기, 병원예약, 택시호출, 건강정보까지 한 번에." />
+  <meta property="og:type" content="website" />
+
+  <!-- 아이콘 설정 -->
+  <link rel="icon" type="image/png" href="/boyaki.png" />
+  <link rel="apple-touch-icon" href="/boyaki.png" />
+
+  <!-- Preload Noto Sans KR Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <title>디지털 보약 - 어르신을 위한 스마트폰 도우미</title>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+  <style>
+    /* 로딩 스플래시 */
+    #loading-splash {
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(135deg, #FF9A6C 0%, #FF7F50 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: opacity 0.3s ease;
+    }
+
+    #loading-splash.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .loader {
+      width: 60px;
+      height: 60px;
+      border: 4px solid rgba(255, 255, 255, 0.3);
+      border-top-color: white;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .loading-text {
+      margin-top: 20px;
+      color: white;
+      font-size: 18px;
+      font-weight: 600;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 로딩 화면 -->
+  <div id="loading-splash">
+    <div class="loader"></div>
+    <p class="loading-text">디지털 보약 로딩중...</p>
+  </div>
+
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+
+  <script>
+    // 앱 로딩 완료 시 스플래시 숨김
+    window.addEventListener('load', function () {
+      setTimeout(function () {
+        document.getElementById('loading-splash').classList.add('hidden');
+      }, 500);
+    });
+  </script>
+</body>
+
+</html>

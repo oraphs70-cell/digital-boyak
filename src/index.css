@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+/* Google Fonts - 시니어 친화적 폰트 */
+
+/* 커스텀 CSS 변수 */
+:root {
+  --primary-peach: #FF9A6C;
+  --primary-orange: #FF7F50;
+  --primary-coral: #FF6B6B;
+  --bg-cream: #FFF8F5;
+  --bg-light-gray: #F5F5F5;
+  --text-dark: #333333;
+  --text-gray: #666666;
+  --sos-red: #E53E3E;
+  --share-green: #38A169;
+  --weather-blue: #4299E1;
+}
+
+* {
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--bg-cream);
+  color: var(--text-dark);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 시니어 접근성을 위한 기본 스타일 */
+button {
+  cursor: pointer;
+  font-family: inherit;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible {
+  outline: 3px solid var(--primary-orange);
+  outline-offset: 2px;
+}
+
+/* 스크롤바 스타일 */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c4c4c4;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
